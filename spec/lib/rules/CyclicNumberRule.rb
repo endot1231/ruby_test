@@ -6,12 +6,17 @@ RSpec.describe 'CyclicNumberRule' do
   describe '#match?' do
     context '倍数ではない場合' do
       it 'returns true' do
+        expect(rule.match?(0, 3)).to be true
+        expect(rule.match?(0, 6)).to be true
         expect(rule.match?(0, 9)).to be true
+        expect(rule.match?(0, 12)).to be true
       end
     end
 
     context '倍数の場合' do
       it 'returns false' do
+        expect(rule.match?(0, 1)).to be false
+        expect(rule.match?(0, 2)).to be false
         expect(rule.match?(0, 7)).to be false
       end
     end
